@@ -1,10 +1,10 @@
 #!/bin/bash
 PREFIX=""
-arm_binary=0
-ret=$(uname -a)
-if [ "$ret" == 255 ]; then
-	PREFIX=/usr/bin/qemu-arm-static
+arch=$(arch)
+echo $arch
+if ! [ "$arch" == "x86_64" ]; then
+	PREFIX=PREFIX=/usr/bin/qemu-arm-static
 fi
 
-$PREFIX uname -a
+$PREFIX /bin/uname -a
 
